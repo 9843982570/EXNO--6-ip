@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anagram Checker</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<input type="text" id="input1" placeholder="Enter string 1">
+<input type="text" id="input2" placeholder="Enter string 2">
+<button id="checkAnagramBtn">Check Anagram</button>
+
+<div id="result"></div>
+
+<script>
+$(document).ready(function() {
+    $('#checkAnagramBtn').click(function() {
+        var str1 = $('#input1').val().toLowerCase().replace(/\s/g, '');
+        var str2 = $('#input2').val().toLowerCase().replace(/\s/g, '');
+
+        if (str1.length !== str2.length) {
+            $('#result').text("Not anagrams: Different lengths");
+            return;
+        }
+
+        var sortedStr1 = str1.split('').sort().join('');
+        var sortedStr2 = str2.split('').sort().join('');
+
+        if (sortedStr1 === sortedStr2) {
+            $('#result').text("Strings are anagrams");
+        } else {
+            $('#result').text("Not anagrams");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

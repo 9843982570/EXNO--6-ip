@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Fade</title>
+<style>
+    #image-container {
+        position: relative;
+
+    }
+    #image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+
+<div id="image-container">
+    <img src="https://img.freepik.com/free-photo/vibrant-colors-nature-close-up-wet-purple-daisy-generated-by-artificial-intellingence_25030-63819.jpg?w=1060&t=st=1710654352~exp=1710654952~hmac=d5801212ea96471d6f2eae7d4199da819072de8f462316fe2151bccb214ef961" alt="Original Image" id="main-image">
+    <button id="change-image-btn">Change Image</button>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#change-image-btn').click(function() {
+            $('#main-image').fadeOut(2000, function() {
+                $(this).attr('src', 'https://images.pexels.com/photos/87452/flowers-background-butterflies-beautiful-87452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1').on('load', function() {
+                    $(this).fadeIn(2000);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
